@@ -43,8 +43,8 @@
         }
         this.width = width;
         this.height = height;
-        this.speedX = 0;
-        this.speedY = 0;    
+        this.speedX = 15;
+        this.speedY = 15;    
         this.x = x;
         this.y = y;    
         this.update = function() {
