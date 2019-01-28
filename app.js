@@ -141,16 +141,16 @@
     document.onkeydown = function(e) {
         switch (e.keyCode) {
             case 37:
-                myGamePiece.speedX = -1; 
+                myGamePiece.speedX = -5; 
                 break;
             case 38:
-                myGamePiece.speedY = -1; 
+                myGamePiece.speedY = -5; 
                 break;
             case 39:
-                myGamePiece.speedX = 1; 
+                myGamePiece.speedX = 5; 
                 break;
             case 40:
-                myGamePiece.speedY = 1; 
+                myGamePiece.speedY = 5; 
                 break;          
         }
     };
