@@ -118,7 +118,20 @@
             myObstacles.push(new component(40, height, "green", x, 0));
             myObstacles.push(new component(40, x - height - gap, "green", x+100, height + gap));
 
-            
+            gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+            height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+            myObstacles.push(new component(40, height, "green", x+300, 0));
+            myObstacles.push(new component(40, x - height - gap, "green", x+400, height + gap));
+
+            gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+            height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+            myObstacles.push(new component(40, height, "green", x+600, 0));
+            myObstacles.push(new component(40, x - height - gap, "green", x+700, height + gap));
+
+            gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+            height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+            myObstacles.push(new component(40, height, "green", x+900, 0));
+            myObstacles.push(new component(40, x - height - gap, "green", x+1000, height + gap));
         }
         for (i = 0; i < myObstacles.length; i += 1) {
             myObstacles[i].x -= 5;
