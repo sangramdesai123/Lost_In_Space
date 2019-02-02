@@ -7,8 +7,11 @@
     var myblast;
 
     function startGame() {
+        myObstacles = [];
+        try{
         var elem = document.getElementById("btn");
         elem.parentNode.removeChild(elem);
+        }catch(err){}
         myGamePiece = new component(80, 70, "images/ship.png", 100, 120,"image");//add image
         mySound = new sound("sounds/expo.mp3");
         myMusic = new sound("sounds/Warfare.mp3");
@@ -43,8 +46,8 @@
         }
         this.width = width;
         this.height = height;
-        this.speedX = 15;
-        this.speedY = 15;    
+        this.speedX = 0;
+        this.speedY = 0;    
         this.x = x;
         this.y = y;    
         this.update = function() {
@@ -92,6 +95,13 @@
                 myMusic.stop();
                 mySound.play();
                 myGameArea.stop();
+                var r=confirm("SUPER..Your score is : "+myGameArea.frameNo);
+                if(r==true){
+                    //restart the game
+                    myGameArea.stop();
+                    myGameArea.clear();
+                    startGame();
+                }
                 return;
             } 
         }
@@ -106,11 +116,12 @@
             maxGap = 300;
             gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
             myObstacles.push(new component(40, height, "green", x, 0));
-            myObstacles.push(new component(40, x - height - gap, "green", x, height + gap));
+            myObstacles.push(new component(40, x - height - gap, "green", x+100, height + gap));
+
             
         }
         for (i = 0; i < myObstacles.length; i += 1) {
-            myObstacles[i].x -= 1;
+            myObstacles[i].x -= 5;
             myObstacles[i].update();
         }
         myMusic.play();
@@ -141,17 +152,19 @@
     document.onkeydown = function(e) {
         switch (e.keyCode) {
             case 37:
-                myGamePiece.speedX = -5; 
+                myGamePiece.speedX = -3; 
                 break;
             case 38:
-                myGamePiece.speedY = -5; 
+                myGamePiece.speedY = -3; 
                 break;
             case 39:
-                myGamePiece.speedX = 5; 
+                myGamePiece.speedX = 3; 
                 break;
             case 40:
-                myGamePiece.speedY = 5; 
-                break;          
+                myGamePiece.speedY = 3; 
+                break;  
+            default:
+                  myGamePiece.speedY=0;      
         }
     };
     document.onkeyup = function(e) {
