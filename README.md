@@ -4,7 +4,7 @@ spaceship game in javascript using canvas.
 
 ***Installation***
 
-Simply run the following commands to install
+Simply run the following commands to install the game
 
 Step 1:
 
